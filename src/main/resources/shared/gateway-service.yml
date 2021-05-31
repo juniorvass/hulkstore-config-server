@@ -1,0 +1,32 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+ribbon:
+  ReadTimeout: 300000
+  ConnectTimeout: 5000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 0
+
+zuul:
+  add-host-header: true
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 5000
+    socket-timeout-millis: 300000
+  routes:
+    auth-service:
+      path: /uaa/** 
+      serviceId: uaa-service 
+      stripPrefix: false
+      sensitiveHeaders:
+      
+eureka:
+ client:
+  fetchRegistry: true
+
+server:
+  port: 8080
+
