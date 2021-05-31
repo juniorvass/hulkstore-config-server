@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hukstore_uaa
+  security:
+    oauth2:
+      authorizationserver:
+        jwt:
+          enabled: true
+    user:
+      password: password
+      
+eureka:
+  client:
+   fetchRegistry: true
+  instance:   
+    metadata-map:
+      multi-tenant:
+        enabled: true      
+              
+server:
+  servlet:
+    context-path: /uaa
+  port: 8081
